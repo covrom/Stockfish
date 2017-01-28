@@ -56,6 +56,7 @@ public:
   void start_searching(bool resume = false);
   void wait_for_search_finished();
   void wait(std::atomic_bool& condition);
+  Value correctEval(const Position& pos, Value eval, Depth depth);
 
   Pawns::Table pawnsTable;
   Material::Table materialTable;
