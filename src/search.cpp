@@ -342,7 +342,7 @@ Value Thread::correctEval(const Position& pos, Value eval, Depth depth) {
 	if ((us == Them) && (depth >= 4*ONE_PLY) && (abs(eval_adj) > 50) && (abs(eval_adj) < 1000)){
 	  eval_adj = Value(eval_adj<0 ? int(eval_adj)*4*ONE_PLY/int(depth) : int(eval_adj)*int(depth)/(4*ONE_PLY));
 	  if (eval_adj>1000) eval_adj = Value(1000);
-	}else{
+	}else if ((us != Them) && (depth >= 4*ONE_PLY) && (abs(eval_adj) > 50) && (abs(eval_adj) < 1000)){
 	  eval_adj = Value(eval_adj<0 ? int(eval_adj)*int(depth)/(4*ONE_PLY) : int(eval_adj)*4*ONE_PLY/int(depth));
 	  if (eval_adj>1000) eval_adj = Value(1000);
 	}
